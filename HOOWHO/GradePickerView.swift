@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GradePickerView: View {
     @State private var selectedGrade: Int = 0
+    @State private var navigateToSchoolPicker: Bool = false
+    
     let grades = (1...12).map { "Grade \($0)" }
 
     var body: some View {
@@ -22,7 +24,20 @@ struct GradePickerView: View {
                 }
             }
             .pickerStyle(WheelPickerStyle())
+            
+            Button("Next") {
+                navigateToSchoolPicker = true
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            
+            NavigationLink(destination: SchoolPickerView(), isActive: $navigateToSchoolPicker) {
+                EmptyView()
+            }
         }
+        
     }
 }
 
