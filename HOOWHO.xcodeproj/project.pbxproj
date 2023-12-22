@@ -13,6 +13,7 @@
 		2A84BD362B343BF2005C53A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A84BD352B343BF2005C53A6 /* Preview Assets.xcassets */; };
 		2AF2E33D2B35622F007F5785 /* GradePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33C2B35622F007F5785 /* GradePickerView.swift */; };
 		2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */; };
+		2AF2E3412B3574EB007F5785 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2A84BD352B343BF2005C53A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AF2E33C2B35622F007F5785 /* GradePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePickerView.swift; sourceTree = "<group>"; };
 		2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolPickerView.swift; sourceTree = "<group>"; };
+		2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2A84BD302B343BF1005C53A6 /* LaunchView.swift */,
 				2AF2E33C2B35622F007F5785 /* GradePickerView.swift */,
 				2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */,
+				2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */,
 				2A84BD322B343BF2005C53A6 /* Assets.xcassets */,
 				2A84BD342B343BF2005C53A6 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF2E3412B3574EB007F5785 /* SchoolViewModel.swift in Sources */,
 				2AF2E33D2B35622F007F5785 /* GradePickerView.swift in Sources */,
 				2A84BD312B343BF1005C53A6 /* LaunchView.swift in Sources */,
 				2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */,
