@@ -10,28 +10,53 @@ import SwiftUI
 @main
 struct HOOWHOApp: App {
     var body: some Scene {
-            #if os(iOS)
-            WindowGroup {
-                TabView {
-                    ContentView()
-                        .tabItem {
-                            Label("Journal", systemImage: "book")
-                        }
-                    
-                    SettingsView()
-                        .tabItem {
-                            Label("Settings", systemImage: "gear")
-                        }
-                }
-            }
-            #elseif os(macOS)
-            WindowGroup {
-                AlternativeContentView()
-            }
-            
-            Settings {
-                SettingsView()
-            }
-            #endif
+        WindowGroup {
+            LaunchView()
         }
     }
+}
+
+
+
+
+
+//
+//
+//
+//
+//import SwiftUI
+//
+//@main
+//struct HOOWHOApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            NavigationView {
+//                ContentView()
+//            }
+//        }
+//    }
+//}
+//
+//struct ContentView: View {
+//    var body: some View {
+//        LaunchView()
+//    }
+//}
+//
+//struct LaunchView: View {
+//    var body: some View {
+//        Text("HOOWHO")
+//            .font(.largeTitle)
+//            .padding()
+//        NavigationLink(destination: GradePickerView()) {
+//            Text("👤") // Person emoji
+//                .font(.system(size: 50))
+//        }
+//    }
+//}
+//
+//struct GradePickerView: View {
+//    var body: some View {
+//        Text("Grade Picker")
+//    }
+//}
