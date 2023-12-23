@@ -35,7 +35,7 @@ struct SchoolPickerView: View {
             .foregroundColor(.white)
             .cornerRadius(8)
             
-            NavigationLink(destination: Username(), isActive: $navigateToUsername) {
+            NavigationLink(destination: UsernameView(), isActive: $navigateToUsername) {
                 EmptyView()
             }
         }
