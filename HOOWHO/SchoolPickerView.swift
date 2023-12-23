@@ -5,18 +5,20 @@
 //  Created by Keith Jung on 12/21/23.
 //
 
+// SchoolPickerView.swift
+
 import SwiftUI
 
 struct SchoolPickerView: View {
     @StateObject var viewModel = SchoolViewModel()
-    @State private var selectedSchool: String = ""
+    @State private var selectedSchoolID: String = ""
 
     var body: some View {
         VStack {
             Text("Select Your School")
                 .font(.headline)
 
-            Picker("School", selection: $selectedSchool) {
+            Picker("School", selection: $selectedSchoolID) {
                 ForEach(viewModel.schools) { school in
                     Text(school.schoolName).tag(school.id)
                 }
