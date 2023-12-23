@@ -11,6 +11,10 @@
 		2A84BD312B343BF1005C53A6 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A84BD302B343BF1005C53A6 /* LaunchView.swift */; };
 		2A84BD332B343BF2005C53A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A84BD322B343BF2005C53A6 /* Assets.xcassets */; };
 		2A84BD362B343BF2005C53A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A84BD352B343BF2005C53A6 /* Preview Assets.xcassets */; };
+		2AB663CC2B36CC2500DA945A /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB663CB2B36CC2500DA945A /* Username.swift */; };
+		2AB663D02B36CDF800DA945A /* ProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB663CD2B36CDF700DA945A /* ProfilePic.swift */; };
+		2AB663D12B36CDF800DA945A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB663CE2B36CDF800DA945A /* NameView.swift */; };
+		2AB663D22B36CDF800DA945A /* Pollpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB663CF2B36CDF800DA945A /* Pollpage.swift */; };
 		2AF2E33D2B35622F007F5785 /* GradePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33C2B35622F007F5785 /* GradePickerView.swift */; };
 		2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */; };
 		2AF2E3412B3574EB007F5785 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */; };
@@ -22,6 +26,10 @@
 		2A84BD302B343BF1005C53A6 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		2A84BD322B343BF2005C53A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A84BD352B343BF2005C53A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AB663CB2B36CC2500DA945A /* Username.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
+		2AB663CD2B36CDF700DA945A /* ProfilePic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePic.swift; sourceTree = "<group>"; };
+		2AB663CE2B36CDF800DA945A /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
+		2AB663CF2B36CDF800DA945A /* Pollpage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pollpage.swift; sourceTree = "<group>"; };
 		2AF2E33C2B35622F007F5785 /* GradePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePickerView.swift; sourceTree = "<group>"; };
 		2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolPickerView.swift; sourceTree = "<group>"; };
 		2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +70,10 @@
 				2AF2E33C2B35622F007F5785 /* GradePickerView.swift */,
 				2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */,
 				2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */,
+				2AB663CB2B36CC2500DA945A /* Username.swift */,
+				2AB663CE2B36CDF800DA945A /* NameView.swift */,
+				2AB663CD2B36CDF700DA945A /* ProfilePic.swift */,
+				2AB663CF2B36CDF800DA945A /* Pollpage.swift */,
 				2A84BD322B343BF2005C53A6 /* Assets.xcassets */,
 				2A84BD342B343BF2005C53A6 /* Preview Content */,
 			);
@@ -147,8 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF2E3412B3574EB007F5785 /* SchoolViewModel.swift in Sources */,
+				2AB663D22B36CDF800DA945A /* Pollpage.swift in Sources */,
+				2AB663D02B36CDF800DA945A /* ProfilePic.swift in Sources */,
+				2AB663CC2B36CC2500DA945A /* Username.swift in Sources */,
 				2AF2E33D2B35622F007F5785 /* GradePickerView.swift in Sources */,
 				2A84BD312B343BF1005C53A6 /* LaunchView.swift in Sources */,
+				2AB663D12B36CDF800DA945A /* NameView.swift in Sources */,
 				2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */,
 				2A84BD2F2B343BF1005C53A6 /* HOOWHOApp.swift in Sources */,
 			);

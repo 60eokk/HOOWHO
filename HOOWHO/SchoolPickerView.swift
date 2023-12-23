@@ -12,6 +12,7 @@ import SwiftUI
 struct SchoolPickerView: View {
     @StateObject var viewModel = SchoolViewModel()
     @State private var selectedSchoolID: String = ""
+    @State private var navigateToUsername: Bool = false
 
     var body: some View {
         VStack {
@@ -25,9 +26,24 @@ struct SchoolPickerView: View {
             }
             .onAppear(perform: viewModel.loadSchools)
             .pickerStyle(WheelPickerStyle())
+            
+            Button("Next") {
+                navigateToUsername = true
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            
+            NavigationLink(destination: Username(), isActive: $navigateToUsername) {
+                EmptyView()
+            }
         }
     }
 }
+
+
+
 
 struct SchoolPickerView_Previews: PreviewProvider {
     static var previews: some View {
