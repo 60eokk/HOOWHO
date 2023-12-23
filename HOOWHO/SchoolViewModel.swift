@@ -1,5 +1,5 @@
 //
-//  GradePickerView.swift
+//  SchoolViewModel.swift
 //  HOOWHO
 //
 //  Created by Keith Jung on 12/21/23.
@@ -19,7 +19,7 @@ class SchoolViewModel: ObservableObject {
 
     func loadSchools() {
         let apiKey = "02711c20956702e80a473846fcaaceb9"
-        let urlString = "https://www.career.go.kr/cnet/openapi/getOpenApi.json?apiKey=\(apiKey)&svcType=api&svcCode=SCHOOL&contentType=Json"
+        let urlString = "www.career.go.kr/cnet/openapi/getOpenApi?apiKey=\(apiKey)&svcType=api&svcCode=SCHOOL&contentType=json&gubun=elem_list"
 
         guard let url = URL(string: urlString) else {
             print("Invalid URL")

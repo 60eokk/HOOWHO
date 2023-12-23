@@ -1,5 +1,5 @@
 //
-//  GradePickerView.swift
+//  SchoolPickerView.swift
 //  HOOWHO
 //
 //  Created by Keith Jung on 12/21/23.
