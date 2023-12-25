@@ -19,7 +19,6 @@ struct NameView: View {
                 .padding()
 
             Button("Next") {
-                // Perform any necessary action with the name
                 navigateToProfilePic = true
             }
 
@@ -28,16 +27,17 @@ struct NameView: View {
                 EmptyView()
             }
         }
-        .navigationBarTitle("Enter Name", displayMode: .inline)
+//        .navigationBarTitle("Enter Name", displayMode: .inline)
+    }
+}
+
+struct NameView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView { // Only for preview
+            NameView()
+        }
     }
 }
 
 
 
-
-//
-//struct NameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NameView()
-//    }
-//}
