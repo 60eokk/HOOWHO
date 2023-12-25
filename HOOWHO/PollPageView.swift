@@ -54,15 +54,15 @@ struct PollPageView: View {
         if currentQuestionIndex < selectedQuestions.count - 1 {
             currentQuestionIndex += 1
         } else {
-            coinsEarned += 1
+            coinsEarned += 10
             // Handle completion
         }
     }
 }
 
-//
-//
-//
+
+
+
 //struct Pollpage_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PollPageView()
