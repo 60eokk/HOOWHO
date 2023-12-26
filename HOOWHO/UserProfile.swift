@@ -1,12 +1,7 @@
-// ProfileView.swift
+// UserProfile.swift
 
-import SwiftUI
-
-struct ProfileView: View {
-    @State private var userProfile: UserProfile?
-
-    var body: some View {
-        // UI to display user profile information
-        // Fetch user profile data from Firebase and display it
-    }
+struct UserProfile {
+    let userId: String
+    var coins: Int
+    // Add other user-related fields as needed
 }

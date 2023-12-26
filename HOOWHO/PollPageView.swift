@@ -14,6 +14,7 @@ struct PollPageView: View {
     @State private var currentQuestionIndex = 0
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
+    @State private var navigateToMainTab = false
 
     init() {
         selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
@@ -42,12 +43,18 @@ struct PollPageView: View {
             } else {
                 Text("You've earned a coin!")
                 Button("Finish") {
-                    // Handle the finish action
+                    // This button can be used for additional actions if needed
                 }
             }
         }
         .padding()
         .navigationBarTitle("Poll", displayMode: .inline)
+        // Automatic navigation to MainTabView
+        .background(
+            NavigationLink(destination: MainTabView(), isActive: $navigateToMainTab) {
+                EmptyView()
+            }
+        )
     }
 
     private func goToNextQuestion() {
@@ -55,7 +62,7 @@ struct PollPageView: View {
             currentQuestionIndex += 1
         } else {
             coinsEarned += 10
-            // Handle completion
+            navigateToMainTab = true
         }
     }
 }
@@ -63,8 +70,8 @@ struct PollPageView: View {
 
 
 
-//struct Pollpage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PollPageView()
-//    }
-//}
+struct Pollpage_Previews: PreviewProvider {
+    static var previews: some View {
+        PollPageView()
+    }
+}
