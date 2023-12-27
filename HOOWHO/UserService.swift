@@ -50,20 +50,33 @@ class UserService {
             }
         }
     }
-
-    private func createUserProfile(for userId: String, completion: @escaping (UserProfile?) -> Void) {
-        let userRef = db.collection("users").document(userId)
-        userRef.setData(["coins": 0]) { error in
-            if let error = error {
-                print("Error creating user profile: \(error)")
-                completion(nil)
-            } else {
-                print("User profile created successfully for user \(userId).")
-                let newUserProfile = UserProfile(userId: userId, coins: 0)
-                completion(newUserProfile)
+    
+    func createUserProfileIfNeeded(for userId: String, completion: @escaping (Bool) -> Void) {
+            let userRef = db.collection("users").document(userId)
+            userRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    completion(true) // User profile already exists
+                } else {
+                    // Create a new profile for the user
+                    self.createUserProfile(for: userId) { newUserProfile in
+                        completion(newUserProfile != nil)
+                    }
+                }
             }
         }
-    }
+
+        private func createUserProfile(for userId: String, completion: @escaping (UserProfile?) -> Void) {
+            let userRef = db.collection("users").document(userId)
+            userRef.setData(["coins": 0]) { error in
+                if let error = error {
+                    print("Error creating user profile: \(error)")
+                    completion(nil)
+                } else {
+                    let newUserProfile = UserProfile(userId: userId, coins: 0)
+                    completion(newUserProfile)
+                }
+            }
+        }
 }
 
 
