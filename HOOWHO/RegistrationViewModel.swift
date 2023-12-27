@@ -27,6 +27,7 @@ class RegistrationViewModel: ObservableObject {
         }
     }
 
+    
     func signInWithGoogle() {
         // Implement Google sign-in logic here
         // This typically involves integrating a Google Sign-In SDK and then
