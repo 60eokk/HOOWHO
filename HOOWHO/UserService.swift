@@ -3,42 +3,47 @@
 import FirebaseFirestore
 import FirebaseAuth
 
-
-
-// UserService.swift
-
 class UserService {
-    // Example fetchUserProfile method
-    func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {
-        // Implement the logic to fetch user profile data from Firebase
-        // Call the completion handler with the UserProfile object
+    let db = Firestore.firestore() // Properly initialize Firestore
+
+    func updateUserCoinBalance(coinsEarned: Int) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+
+        let userRef = db.collection("users").document(userId)
+        userRef.updateData([
+            "coins": FieldValue.increment(Int64(coinsEarned))
+        ]) { error in
+            if let error = error {
+                print("Error updating coins: \(error)")
+            } else {
+                print("Coins successfully updated")
+            }
+        }
     }
 
-    // Include other methods for updating user profile data
+    func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            completion(nil)
+            return
+        }
+
+        let userRef = db.collection("users").document(userId)
+        userRef.getDocument { (document, error) in
+            if let error = error {
+                print("Error fetching user profile: \(error)")
+                completion(nil)
+                return
+            }
+            if let document = document, document.exists {
+                let data = document.data()
+                let coins = data?["coins"] as? Int ?? 0
+                let userProfile = UserProfile(userId: userId, coins: coins)
+                completion(userProfile)
+            } else {
+                print("Document does not exist")
+                completion(nil)
+            }
+        }
+    }
 }
 
-
-//
-// 이게 원래 버젼. 지우지 않았으니, 윗부분이 틀리면 아래쓰기
-//class UserService {
-//    let db = Firestore.firestore()
-//
-//    func updateUserCoinBalance(coinsEarned: Int) {
-//        guard let userId = Auth.auth().currentUser?.uid else { return }
-//
-//        let userRef = db.collection("users").document(userId)
-//        userRef.updateData([
-//            "coins": FieldValue.increment(Int64(coinsEarned))
-//        ]) { error in
-//            if let error = error {
-//                print("Error updating coins: \(error)")
-//            } else {
-//                print("Coins successfully updated")
-//            }
-//        }
-//    }
-//
-//    // Add other methods for fetching and updating user profiles
-//}
-//
-//
