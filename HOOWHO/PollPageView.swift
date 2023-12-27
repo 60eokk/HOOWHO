@@ -15,6 +15,10 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
     @State private var navigateToMainTab = false
+    
+    
+
+    private let userService = UserService()
 
     init() {
         selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
@@ -41,15 +45,14 @@ struct PollPageView: View {
                     .padding(.vertical, 4)
                 }
             } else {
-                Text("You've earned a coin!")
+                Text("You've earned \(coinsEarned) coins!")
                 Button("Finish") {
-                    // This button can be used for additional actions if needed
+                    self.finishPoll()
                 }
             }
         }
         .padding()
         .navigationBarTitle("Poll", displayMode: .inline)
-        // Automatic navigation to MainTabView
         .background(
             NavigationLink(destination: MainTabView(), isActive: $navigateToMainTab) {
                 EmptyView()
@@ -58,14 +61,29 @@ struct PollPageView: View {
     }
 
     private func goToNextQuestion() {
-        if currentQuestionIndex < selectedQuestions.count - 1 {
-            currentQuestionIndex += 1
-        } else {
-            coinsEarned += 10
-            navigateToMainTab = true
+            if currentQuestionIndex < selectedQuestions.count - 1 {
+                currentQuestionIndex += 1
+            } else {
+                userService.updateUserCoinBalance(coinsEarned: 10) {
+                    DispatchQueue.main.async {
+                        self.navigateToMainTab = true
+                    }
+                }
+            }
+        }
+
+    private func finishPoll() {
+        userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
+            // Trigger navigation after confirming the update
+            DispatchQueue.main.async {
+                self.navigateToMainTab = true
+            }
         }
     }
+
 }
+
+// UserService.swift needs to be adjusted to call a completion handler after updating coins.
 
 
 

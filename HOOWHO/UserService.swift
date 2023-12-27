@@ -8,20 +8,22 @@ import FirebaseAuth
 class UserService {
     let db = Firestore.firestore()
 
-    func updateUserCoinBalance(coinsEarned: Int) {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
+    func updateUserCoinBalance(coinsEarned: Int, completion: @escaping () -> Void) {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
 
-        let userRef = db.collection("users").document(userId)
-        userRef.updateData([
-            "coins": FieldValue.increment(Int64(coinsEarned))
-        ]) { error in
-            if let error = error {
-                print("Error updating coins: \(error)")
-            } else {
-                print("Coins successfully updated")
+            let userRef = db.collection("users").document(userId)
+            userRef.updateData([
+                "coins": FieldValue.increment(Int64(coinsEarned))
+            ]) { error in
+                if let error = error {
+                    print("Error updating coins: \(error)")
+                } else {
+                    print("Coins successfully updated")
+                }
+                completion() // Call the completion handler after the update
             }
         }
-    }
+
 
     func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
