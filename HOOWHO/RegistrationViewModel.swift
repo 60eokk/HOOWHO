@@ -17,15 +17,17 @@ class RegistrationViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             DispatchQueue.main.async {
                 if let user = authResult?.user {
-                    print("User registered: \(user)")
                     self?.isRegistrationSuccessful = true
                 } else if let error = error {
                     print("Registration failed: \(error.localizedDescription)")
                     self?.errorMessage = error.localizedDescription
+                    // For debugging: print the full error
+                    print(error)
                 }
             }
         }
     }
+
 
     
     func signInWithGoogle() {
