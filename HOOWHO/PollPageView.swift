@@ -16,6 +16,8 @@ struct PollPageView: View {
     @State private var coinsEarned = 0
     @State private var navigateToMainTab = false
     
+    @EnvironmentObject var appState: AppState
+    
     
 
     private let userService = UserService()

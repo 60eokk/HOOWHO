@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A0228E42B3AAEB900BCFF29 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0228E32B3AAEB900BCFF29 /* MainTabView.swift */; };
 		2A0228E62B3BA5A400BCFF29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A0228E52B3BA5A400BCFF29 /* GoogleService-Info.plist */; };
+		2A0228E82B3C223B00BCFF29 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0228E72B3C223A00BCFF29 /* AppState.swift */; };
 		2A3246152B399723008B9C2C /* PollQuestionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3246142B399723008B9C2C /* PollQuestionsData.swift */; };
 		2A3246192B399BA3008B9C2C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3246162B399BA3008B9C2C /* UserProfile.swift */; };
 		2A32461A2B399BA3008B9C2C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3246172B399BA3008B9C2C /* ProfileView.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		2A0228E32B3AAEB900BCFF29 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		2A0228E52B3BA5A400BCFF29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A0228E72B3C223A00BCFF29 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2A3246142B399723008B9C2C /* PollQuestionsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollQuestionsData.swift; sourceTree = "<group>"; };
 		2A3246162B399BA3008B9C2C /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		2A3246172B399BA3008B9C2C /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2A0228E52B3BA5A400BCFF29 /* GoogleService-Info.plist */,
+				2A0228E72B3C223A00BCFF29 /* AppState.swift */,
 				2A84BD2E2B343BF1005C53A6 /* HOOWHOApp.swift */,
 				2A84BD302B343BF1005C53A6 /* LaunchView.swift */,
 				2AF2E33C2B35622F007F5785 /* GradePickerView.swift */,
@@ -277,6 +280,7 @@
 				2AB663D62B36D43B00DA945A /* RegistrationViewModel.swift in Sources */,
 				2A84BD312B343BF1005C53A6 /* LaunchView.swift in Sources */,
 				2A3246192B399BA3008B9C2C /* UserProfile.swift in Sources */,
+				2A0228E82B3C223B00BCFF29 /* AppState.swift in Sources */,
 				2AB663D12B36CDF800DA945A /* NameView.swift in Sources */,
 				2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */,
 				2A84BD2F2B343BF1005C53A6 /* HOOWHOApp.swift in Sources */,
