@@ -69,7 +69,7 @@ struct PollPageView: View {
 
 
 
-//
+
 //struct Pollpage_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PollPageView()

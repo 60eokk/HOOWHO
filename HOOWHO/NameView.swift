@@ -38,6 +38,3 @@ struct NameView_Previews: PreviewProvider {
         }
     }
 }
-
-
-
