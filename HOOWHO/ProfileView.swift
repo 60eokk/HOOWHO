@@ -21,14 +21,14 @@ struct ProfileView: View {
     }
 
     var body: some View {
-        VStack {
-            if isLoading {
-                Text("Loading profile...")
-            } else if let userProfile = userProfile {
-                // Display user profile information
-                Text("User ID: \(userProfile.userId)")
-                Text("Coins: \(userProfile.coins)")
-            } else {
+            VStack {
+                if let userProfile = userProfile {
+                    Text("Name: \(userProfile.name)")
+                    Text("Grade: \(userProfile.grade)")
+                    Text("School: \(userProfile.school)")
+                    Text("Coins: \(userProfile.coins)")
+                    // ... other UI elements ...
+                } else {
                 Text(errorMessage ?? "Unknown error")
             }
         }

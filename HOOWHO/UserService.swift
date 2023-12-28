@@ -7,6 +7,23 @@ import FirebaseAuth
 
 class UserService {
     let db = Firestore.firestore()
+    
+    func saveUserProfileDetails(name: String, grade: String, school: String) {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+
+            let userRef = db.collection("users").document(userId)
+            userRef.updateData([
+                "name": name,
+                "grade": grade,
+                "school": school
+            ]) { error in
+                if let error = error {
+                    print("Error updating user profile details: \(error)")
+                } else {
+                    print("User profile details updated successfully")
+                }
+            }
+        }
 
     func updateUserCoinBalance(coinsEarned: Int, completion: @escaping () -> Void) {
             guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -27,31 +44,25 @@ class UserService {
 
     func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
-            print("No user ID found")
             completion(nil)
             return
         }
 
         let userRef = db.collection("users").document(userId)
-        userRef.getDocument { [weak self] (document, error) in
-            if let error = error {
-                print("Error fetching user profile: \(error)")
-                completion(nil)
-                return
-            }
-
-            if let document = document, document.exists {
-                if let data = document.data() {
-                    let coins = data["coins"] as? Int ?? 0
-                    let userProfile = UserProfile(userId: userId, coins: coins)
-                    completion(userProfile)
-                }
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists, let data = document.data() {
+                let coins = data["coins"] as? Int ?? 0
+                let name = data["name"] as? String ?? ""
+                let grade = data["grade"] as? String ?? ""
+                let school = data["school"] as? String ?? ""
+                let userProfile = UserProfile(userId: userId, coins: coins, name: name, grade: grade, school: school)
+                completion(userProfile)
             } else {
-                print("Document for user \(userId) does not exist. Creating a new one.")
-                self?.createUserProfile(for: userId, completion: completion)
+                completion(nil)
             }
         }
     }
+
     
     func createUserProfileIfNeeded(for userId: String, completion: @escaping (Bool) -> Void) {
             let userRef = db.collection("users").document(userId)
@@ -67,14 +78,19 @@ class UserService {
             }
         }
 
-        private func createUserProfile(for userId: String, completion: @escaping (UserProfile?) -> Void) {
+    private func createUserProfile(for userId: String, name: String = "", grade: String = "", school: String = "", completion: @escaping (UserProfile?) -> Void) {
             let userRef = db.collection("users").document(userId)
-            userRef.setData(["coins": 0]) { error in
+            userRef.setData([
+                "coins": 0,
+                "name": name,
+                "grade": grade,
+                "school": school
+            ]) { error in
                 if let error = error {
                     print("Error creating user profile: \(error)")
                     completion(nil)
                 } else {
-                    let newUserProfile = UserProfile(userId: userId, coins: 0)
+                    let newUserProfile = UserProfile(userId: userId, coins: 0, name: name, grade: grade, school: school)
                     completion(newUserProfile)
                 }
             }
