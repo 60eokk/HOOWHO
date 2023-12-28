@@ -9,9 +9,10 @@ class UserService {
     let db = Firestore.firestore()
     
     func saveUserProfileDetails(name: String, grade: String, school: String) {
-            guard let userId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = Auth.auth().currentUser?.uid else { return }
 
-            let userRef = db.collection("users").document(userId)
+        let userRef = db.collection("users").document(userId)
+        createUserDocumentIfNeeded(userRef) { [weak self] in
             userRef.updateData([
                 "name": name,
                 "grade": grade,
@@ -24,11 +25,13 @@ class UserService {
                 }
             }
         }
+    }
 
     func updateUserCoinBalance(coinsEarned: Int, completion: @escaping () -> Void) {
-            guard let userId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = Auth.auth().currentUser?.uid else { return }
 
-            let userRef = db.collection("users").document(userId)
+        let userRef = db.collection("users").document(userId)
+        createUserDocumentIfNeeded(userRef) {
             userRef.updateData([
                 "coins": FieldValue.increment(Int64(coinsEarned))
             ]) { error in
@@ -37,9 +40,29 @@ class UserService {
                 } else {
                     print("Coins successfully updated")
                 }
-                completion() // Call the completion handler after the update
+                completion()
             }
         }
+    }
+    
+    
+    // Helper function to create a document if it doesn't exist
+    private func createUserDocumentIfNeeded(_ userRef: DocumentReference, completion: @escaping () -> Void) {
+        userRef.getDocument { (document, error) in
+            if let document = document, !document.exists {
+                userRef.setData(["coins": 0]) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error)")
+                    } else {
+                        print("User document created successfully")
+                    }
+                    completion()
+                }
+            } else {
+                completion()
+            }
+        }
+    }
 
 
     func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {

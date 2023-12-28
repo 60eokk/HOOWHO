@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct GradePickerView: View {
-    @State private var selectedGrade: Int = 0
+    @State private var selectedGradeIndex: Int = 0
     @State private var navigateToSchoolPicker: Bool = false
     
     let grades = (1...12).map { "Grade \($0)" }
+    
+    var selectedGrade: String {
+            grades[selectedGradeIndex]
+        }
 
     var body: some View {
         VStack {
             Text("Select Your Grade")
                 .font(.headline)
             
-            Picker("Grade", selection: $selectedGrade) {
+            Picker("Grade", selection: $selectedGradeIndex) {
                 ForEach(0..<grades.count) {
                     Text(self.grades[$0])
                 }
@@ -33,9 +37,10 @@ struct GradePickerView: View {
             .foregroundColor(.white)
             .cornerRadius(8)
             
-            NavigationLink(destination: SchoolPickerView(), isActive: $navigateToSchoolPicker) {
+            NavigationLink(destination: SchoolPickerView(selectedGrade: grades[selectedGradeIndex]), isActive: $navigateToSchoolPicker) {
                 EmptyView()
             }
+
         }
         
     }

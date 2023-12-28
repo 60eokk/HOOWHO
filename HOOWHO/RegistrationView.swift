@@ -11,8 +11,11 @@ import SwiftUI
 
 struct RegistrationView: View {
     @StateObject var viewModel = RegistrationViewModel()
+    let selectedGrade: String
+    let selectedSchoolID: String
     @State private var email: String = ""
     @State private var password: String = ""
+
 
     var body: some View {
         NavigationView {
@@ -26,7 +29,7 @@ struct RegistrationView: View {
                     .padding()
 
                 Button("Register") {
-                    viewModel.registerWithEmail(email, password: password)
+                    viewModel.registerWithEmail(email, password: password, grade: selectedGrade, schoolID: selectedSchoolID)
                 }
                 .padding()
 
@@ -50,6 +53,6 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView(selectedGrade: "Grade 1", selectedSchoolID: "SchoolID1")
     }
 }
