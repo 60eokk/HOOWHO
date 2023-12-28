@@ -141,16 +141,3 @@ class UserService {
             }
         }
 }
-
-
-
-
-
-
-
-
-// HARDCODED USERID
-//    func fetchUserProfile(completion: @escaping (UserProfile?) -> Void) {
-//        let mockProfile = UserProfile(userId: "testUserId", coins: 100)
-//        completion(mockProfile)
-//    }

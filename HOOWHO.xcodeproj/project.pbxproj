@@ -50,6 +50,7 @@
 		2AB664092B36DEC700DA945A /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AB664082B36DEC700DA945A /* FirebaseRemoteConfigSwift */; };
 		2AB6640B2B36DEC700DA945A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2AB6640A2B36DEC700DA945A /* FirebaseStorage */; };
 		2AB6640D2B36DEC700DA945A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2AB6640C2B36DEC700DA945A /* FirebaseStorageCombine-Community */; };
+		2AD53C3C2B3D6B8300B88E4B /* WHOandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD53C3B2B3D6B8300B88E4B /* WHOandGeneral.swift */; };
 		2AF2E33D2B35622F007F5785 /* GradePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33C2B35622F007F5785 /* GradePickerView.swift */; };
 		2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */; };
 		2AF2E3412B3574EB007F5785 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */; };
@@ -73,6 +74,7 @@
 		2AB663CE2B36CDF800DA945A /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		2AB663CF2B36CDF800DA945A /* PollPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollPageView.swift; sourceTree = "<group>"; };
 		2AB663D52B36D43B00DA945A /* RegistrationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		2AD53C3B2B3D6B8300B88E4B /* WHOandGeneral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WHOandGeneral.swift; sourceTree = "<group>"; };
 		2AF2E33C2B35622F007F5785 /* GradePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradePickerView.swift; sourceTree = "<group>"; };
 		2AF2E33E2B356EDE007F5785 /* SchoolPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolPickerView.swift; sourceTree = "<group>"; };
 		2AF2E3402B3574EA007F5785 /* SchoolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				2A3246172B399BA3008B9C2C /* ProfileView.swift */,
 				2A3246162B399BA3008B9C2C /* UserProfile.swift */,
 				2A3246182B399BA3008B9C2C /* UserService.swift */,
+				2AD53C3B2B3D6B8300B88E4B /* WHOandGeneral.swift */,
 				2A84BD322B343BF2005C53A6 /* Assets.xcassets */,
 				2A84BD342B343BF2005C53A6 /* Preview Content */,
 			);
@@ -282,6 +285,7 @@
 				2A3246192B399BA3008B9C2C /* UserProfile.swift in Sources */,
 				2A0228E82B3C223B00BCFF29 /* AppState.swift in Sources */,
 				2AB663D12B36CDF800DA945A /* NameView.swift in Sources */,
+				2AD53C3C2B3D6B8300B88E4B /* WHOandGeneral.swift in Sources */,
 				2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */,
 				2A84BD2F2B343BF1005C53A6 /* HOOWHOApp.swift in Sources */,
 				2A0228E42B3AAEB900BCFF29 /* MainTabView.swift in Sources */,

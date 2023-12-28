@@ -12,6 +12,9 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }
-        }
+//
+//            GeneralView()
+//                .tabItem(//)
+//        }
     }
 }
