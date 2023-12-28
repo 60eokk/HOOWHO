@@ -8,24 +8,46 @@ import FirebaseAuth
 class UserService {
     let db = Firestore.firestore()
     
-    func saveUserProfileDetails(name: String, grade: String, school: String) {
+    func saveUserProfileDetails(name: String?, grade: String?, school: String?) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
 
         let userRef = db.collection("users").document(userId)
-        createUserDocumentIfNeeded(userRef) { [weak self] in
-            userRef.updateData([
-                "name": name,
-                "grade": grade,
-                "school": school
-            ]) { error in
-                if let error = error {
-                    print("Error updating user profile details: \(error)")
-                } else {
-                    print("User profile details updated successfully")
+
+        // Check if the document exists
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // If the document exists, update it
+                var updateData = [String: Any]()
+                if let name = name { updateData["name"] = name }
+                if let grade = grade { updateData["grade"] = grade }
+                if let school = school { updateData["school"] = school }
+
+                userRef.updateData(updateData) { error in
+                    if let error = error {
+                        print("Error updating user profile details: \(error)")
+                    } else {
+                        print("User profile details updated successfully")
+                    }
+                }
+            } else {
+                // If the document does not exist, create it
+                var newData = [String: Any]()
+                newData["coins"] = 0 // Initialize coins to 0
+                if let name = name { newData["name"] = name }
+                if let grade = grade { newData["grade"] = grade }
+                if let school = school { newData["school"] = school }
+
+                userRef.setData(newData) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error)")
+                    } else {
+                        print("User document created successfully")
+                    }
                 }
             }
         }
     }
+
 
     func updateUserCoinBalance(coinsEarned: Int, completion: @escaping () -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else { return }

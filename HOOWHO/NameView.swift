@@ -11,6 +11,7 @@ import SwiftUI
 struct NameView: View {
     @State private var name: String = ""
     @State private var navigateToProfilePic = false
+    private let userService = UserService()
 
     var body: some View {
         VStack {
@@ -19,22 +20,20 @@ struct NameView: View {
                 .padding()
 
             Button("Next") {
+                userService.saveUserProfileDetails(name: name, grade: nil, school: nil)
                 navigateToProfilePic = true
             }
 
-            // Navigation link to ProfilePicView
             NavigationLink(destination: ProfilePic(), isActive: $navigateToProfilePic) {
                 EmptyView()
             }
         }
-//        .navigationBarTitle("Enter Name", displayMode: .inline)
+        .navigationBarTitle("Enter Name", displayMode: .inline)
     }
 }
 
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView { // Only for preview until registrationview works
-            NameView()
-        }
+        NameView()
     }
 }
