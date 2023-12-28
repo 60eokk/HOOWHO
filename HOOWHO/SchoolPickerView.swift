@@ -49,10 +49,10 @@ struct SchoolPickerView: View {
 }
 
 
-
-
-struct SchoolPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SchoolPickerView(selectedGrade: "Grade 1")
-    }
-}
+//
+//
+//struct SchoolPickerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SchoolPickerView(selectedGrade: "Grade 1")
+//    }
+//}

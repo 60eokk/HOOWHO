@@ -98,10 +98,8 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 
 
-
-
-struct ProfilePic_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfilePic()
-    }
-}
+//struct ProfilePic_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfilePic()
+//    }
+//}
