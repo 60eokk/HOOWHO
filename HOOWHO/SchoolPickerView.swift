@@ -15,6 +15,10 @@ struct SchoolPickerView: View {
     @State private var navigateToRegistration: Bool = false
     
     let selectedGrade: String
+    
+    private var selectedSchoolName: String {
+        viewModel.schools.first { $0.id == selectedSchoolID }?.schoolName ?? ""
+    }
 
     var body: some View {
         VStack {
@@ -37,7 +41,7 @@ struct SchoolPickerView: View {
             .foregroundColor(.white)
             .cornerRadius(8)
             
-            NavigationLink(destination: RegistrationView(selectedGrade: selectedGrade, selectedSchoolID: selectedSchoolID), isActive: $navigateToRegistration) {
+            NavigationLink(destination: RegistrationView(selectedGrade: selectedGrade, selectedSchoolName: selectedSchoolName), isActive: $navigateToRegistration) {
                 EmptyView()
             }
         }

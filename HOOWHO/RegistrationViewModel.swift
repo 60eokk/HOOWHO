@@ -15,14 +15,14 @@ class RegistrationViewModel: ObservableObject {
 
     let userService = UserService()
 
-    func registerWithEmail(_ email: String, password: String, grade: String, schoolID: String) {
+    func registerWithEmail(_ email: String, password: String, grade: String, schoolName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             DispatchQueue.main.async {
                 if let user = authResult?.user {
                     self?.isRegistrationSuccessful = true
                     // Save user details like grade and school here
                     // For example:
-                    self?.userService.saveUserProfileDetails(name: user.uid, grade: grade, school: schoolID)
+                    self?.userService.saveUserProfileDetails(name: user.uid, grade: grade, school: schoolName)
                 } else if let error = error {
                     self?.errorMessage = error.localizedDescription
                 }
