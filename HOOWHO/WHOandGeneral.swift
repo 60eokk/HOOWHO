@@ -13,9 +13,9 @@ struct GeneralView: View {
     }
 }
 
-// WHOView.swift
 
-import SwiftUI
+
+
 
 struct WHOView: View {
     var body: some View {
