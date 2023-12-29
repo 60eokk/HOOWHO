@@ -18,6 +18,8 @@ struct PollPageView: View {
     
     @EnvironmentObject var appState: AppState
     
+    @ObservedObject var timerManager = TimerManager()
+    
     
 
     private let userService = UserService()
@@ -81,6 +83,7 @@ struct PollPageView: View {
                 self.navigateToMainTab = true
             }
         }
+        timerManager.startTimer()
     }
 
 }

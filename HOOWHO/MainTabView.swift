@@ -3,6 +3,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject var timerManager = TimerManager() // Instance of TimerManager
+
     var body: some View {
         TabView {
             ProfileView()
@@ -10,7 +12,7 @@ struct MainTabView: View {
                     Label("Profile", systemImage: "person.circle")
                 }
 
-            GeneralView()
+            GeneralView(timerManager: timerManager) // Pass TimerManager to GeneralView
                 .tabItem {
                     Label("General", systemImage: "timer")
                 }
