@@ -1,9 +1,5 @@
 //
 //  PollPageView.swift
-//  HOOWHO
-//
-//  Created by Keith Jung on 12/21/23.
-//
 
 
 
@@ -12,7 +8,7 @@ import SwiftUI
 struct PollPageView: View {
     let selectedQuestions: [PollQuestion]
     @State private var currentQuestionIndex = 0
-    @State private var selectedOption: String?
+    @State private var selectedOption: String? //? means optional, so it can either hold a value or nil
     @State private var coinsEarned = 0
     @State private var navigateToMainTab = false
     

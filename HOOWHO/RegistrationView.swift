@@ -1,9 +1,5 @@
 //
 //  RegistrationView.swift
-//  HOOWHO
-//
-//  Created by Keith Jung on 12/21/23.
-//
 
 
 
@@ -28,7 +24,7 @@ struct RegistrationView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
-                Button("Register") {
+                Button("Register") { //When button is tapped, calls registerWithEmail method inside viewModel, passing necessary information
                     viewModel.registerWithEmail(email, password: password, grade: selectedGrade, schoolName: selectedSchoolName)
                 }
                 .padding()

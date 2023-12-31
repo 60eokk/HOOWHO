@@ -1,21 +1,18 @@
 //
 //  RegistrationViewModel.swift
-//  HOOWHO
-//
-//  Created by Keith Jung on 12/21/23.
-// backend
+
 
 
 import Foundation
-import FirebaseAuth
+import FirebaseAuth //Firebase Authentication framework, used for handling user authentications
 
-class RegistrationViewModel: ObservableObject {
+class RegistrationViewModel: ObservableObject { //This class conforms to ObservableObject
     @Published var isRegistrationSuccessful = false
-    @Published var errorMessage: String?
+    @Published var errorMessage: String? //Published property that holds an optional string, used for storing error messages that might occur during registration
 
     let userService = UserService()
 
-    func registerWithEmail(_ email: String, password: String, grade: String, schoolName: String) {
+    func registerWithEmail(_ email: String, password: String, grade: String, schoolName: String) { //This function handles user registration using email and password. It also takes grade and schoolName as additional parameters
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             DispatchQueue.main.async {
                 if let user = authResult?.user {

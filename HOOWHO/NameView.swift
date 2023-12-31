@@ -1,9 +1,6 @@
 //
 //  NameView.swift
-//  HOOWHO
-//
-//  Created by Keith Jung on 12/21/23.
-//
+
 
 
 import SwiftUI
@@ -21,6 +18,7 @@ struct NameView: View {
 
             Button("Next") {
                 userService.saveUserProfileDetails(name: name, grade: nil, school: nil)
+                //name is passed from Textfield name, grade and school is passed nil values because within context of NameView, they are both unavailable. It is a common practice to put nil to represent absence
                 navigateToProfilePic = true
             }
 
