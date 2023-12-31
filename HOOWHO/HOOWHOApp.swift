@@ -36,19 +36,21 @@ import FirebaseCore
 struct HOOWHOApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var appState = AppState()
+    @StateObject var timerManager = TimerManager() // Add TimerManager as a StateObject
 
     var body: some Scene {
         WindowGroup {
             if appState.shouldShowMainTabView {
                 MainTabView()
                     .environmentObject(appState)
+                    .environmentObject(timerManager) // Pass TimerManager as an environment object
             } else {
                 NavigationView {
                     LaunchView()
                         .environmentObject(appState)
+                        .environmentObject(timerManager) // Pass TimerManager as an environment object
                 }
             }
         }
     }
 }
-

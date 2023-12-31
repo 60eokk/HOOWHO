@@ -10,6 +10,7 @@ class TimerManager: ObservableObject {
     var timer: Timer?
 
     func startTimer() {
+        print("Timer started")
         self.timeRemaining = 1800
         self.timerActive = true
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -18,6 +19,7 @@ class TimerManager: ObservableObject {
     }
 
     private func updateTimer() {
+        print("Updating timer, timeRemaining: \(timeRemaining)")
         if timeRemaining > 0 {
             timeRemaining -= 1
         } else {
