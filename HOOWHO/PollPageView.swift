@@ -18,7 +18,7 @@ struct PollPageView: View {
     
     @EnvironmentObject var appState: AppState
     
-    @EnvironmentObject var timerManager: TimerManager
+    @ObservedObject var timerManager = TimerManager()
     
     
 
@@ -62,9 +62,6 @@ struct PollPageView: View {
                 EmptyView()
             }
         )
-        .onAppear {
-            print("TimerManager instance in PollPageView: \(Unmanaged.passUnretained(timerManager).toOpaque())")
-        }
     }
 
     private func goToNextQuestion() {
@@ -81,11 +78,12 @@ struct PollPageView: View {
 
     private func finishPoll() {
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
+            // Trigger navigation after confirming the update
             DispatchQueue.main.async {
                 self.navigateToMainTab = true
             }
-            timerManager.startTimer() // Start the shared timer
         }
+        timerManager.startTimer()
     }
 
 }
