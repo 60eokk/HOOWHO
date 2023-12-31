@@ -10,7 +10,8 @@ struct SchoolPickerView: View { //Declares structure SchoolPickerView which conf
     @State private var selectedSchoolID: String = ""
     @State private var navigateToRegistration: Bool = false
     
-    let selectedGrade: String
+    let selectedGrade: String //This receives the value passed from GradePickerView
+    //selectedGrade in this file is different from selectedGrade in GradePickerView
     
     private var selectedSchoolName: String { //A computed property that returns the name of the school corresponding to the selected selectedSchoolID
         viewModel.schools.first { $0.id == selectedSchoolID }?.schoolName ?? "" //Searches the schools array in the viewModel for the first school where the id matches selectedSchoolID and returns its schoolName
