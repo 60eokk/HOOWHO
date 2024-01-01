@@ -24,7 +24,14 @@ let allPollQuestions: [PollQuestion] = [
     PollQuestion(question: "누가 제일 먼저 결혼할까?", options: ["Option A", "Option B", "Option C", "Option D"]),
     PollQuestion(question: "누가 가장 운동을 못해?", options: ["Option A", "Option B", "Option C", "Option D"]),
     PollQuestion(question: "누가 가장 귀여워?", options: ["Option A", "Option B", "Option C", "Option D"]),
-    PollQuestion(question: "누가 가장 착해?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 가장 못됐어?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "가장 예쁜 강아지를 키우는 사람?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "운동을 제일 잘하는 사람?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 눈물이 가장 많아?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 가장 4차원이야?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 돈이 제일 많아?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 손이 가장 커?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    
     
     
     // Add more questions here...
