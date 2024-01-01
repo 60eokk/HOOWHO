@@ -33,3 +33,6 @@ struct LaunchView_Previews: PreviewProvider { //Used by Xcode to render a previe
         LaunchView()
     }
 }
+
+
+// WHAT NEEDS TO HAPPEN NEXT IS TO CHECK HOW THE OVERALL FUNCTION WILL WORK
