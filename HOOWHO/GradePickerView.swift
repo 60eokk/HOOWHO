@@ -25,10 +25,14 @@ struct GradePickerView: View { //Defines new structure named GradePickerView, th
                 .font(.headline)
             
             Picker("Grade", selection: $selectedGradeIndex) {
-                ForEach(grades, id: \.self) { grade in
-                    Text(grade)
+                ForEach(0 ..< grades.count, id: \.self) { index in
+                    Text(self.grades[index]).tag(index)
                 }
             }
+            .onAppear {
+                print("Current selectedGradeIndex: \(selectedGradeIndex)")
+            }
+
             .pickerStyle(WheelPickerStyle())
             
             Button("Next") { //Button called Next, when tapped sets navigateToSchoolPicker to true
