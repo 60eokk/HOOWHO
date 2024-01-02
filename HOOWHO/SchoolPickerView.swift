@@ -31,6 +31,8 @@ struct SchoolPickerView: View { //Declares structure SchoolPickerView which conf
             .pickerStyle(WheelPickerStyle())
             
             Button("Next") {
+                print("Selected Grade in SchoolPickerView: \(selectedGrade)") //Added debugging statements
+                print("Selected School Name in SchoolPickerView: \(selectedSchoolName)")
                 navigateToRegistration = true
             }
             .padding()

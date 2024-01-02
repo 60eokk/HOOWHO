@@ -32,6 +32,7 @@ struct GradePickerView: View { //Defines new structure named GradePickerView, th
             .pickerStyle(WheelPickerStyle())
             
             Button("Next") { //Button called Next, when tapped sets navigateToSchoolPicker to true
+                print("Selected Grade in GradePickerView: \(grades[selectedGradeIndex])") //Added debugging statement
                 navigateToSchoolPicker = true
             }
             .padding()

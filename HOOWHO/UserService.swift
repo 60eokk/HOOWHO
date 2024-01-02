@@ -53,6 +53,10 @@ class UserService {
         guard let userId = Auth.auth().currentUser?.uid else { return }
 
         let userRef = db.collection("users").document(userId)
+
+        // Corrected debugging statement
+        print("Updating coin balance for user: \(userId) with coins earned: \(coinsEarned)")
+
         createUserDocumentIfNeeded(userRef) {
             userRef.updateData([
                 "coins": FieldValue.increment(Int64(coinsEarned))
@@ -66,6 +70,7 @@ class UserService {
             }
         }
     }
+
     
     
     // Helper function to create a document if it doesn't exist
@@ -100,9 +105,11 @@ class UserService {
                 let name = data["name"] as? String ?? ""
                 let grade = data["grade"] as? String ?? ""
                 let school = data["school"] as? String ?? ""
+                print("Fetched UserProfile: Name: \(name), Grade: \(grade), School: \(school), Coins: \(coins)") //Added debugging statement
                 let userProfile = UserProfile(userId: userId, coins: coins, name: name, grade: grade, school: school)
                 completion(userProfile)
             } else {
+                print("Error fetching user profile: \(error?.localizedDescription ?? "Unknown error")") //Added debugging statement
                 completion(nil)
             }
         }
