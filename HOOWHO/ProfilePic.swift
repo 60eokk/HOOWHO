@@ -39,14 +39,15 @@ struct ProfilePic: View {
                 self.showImagePicker = true
             }
 
-            Button("Next") {
-                navigateToPollPage = true
+            Button("Start Poll") {
+                navigateToPollPage = true // Enable navigation to PollPageView
             }
             .padding()
 
-            // Navigation link to PollPageView
-            NavigationLink(destination: PollPageView(), isActive: $navigateToPollPage) {
-                EmptyView()
+            if navigateToPollPage {
+                NavigationLink(destination: PollPageView(), isActive: $navigateToPollPage) {
+                    EmptyView()
+                }
             }
         }
         .navigationBarTitle("Profile Picture", displayMode: .inline)
