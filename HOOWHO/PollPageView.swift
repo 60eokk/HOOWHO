@@ -73,14 +73,17 @@ struct PollPageView: View {
         }
 
     private func finishPoll() {
+        print("Finishing poll")
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
-            // Trigger navigation after confirming the update
             DispatchQueue.main.async {
+                print("Navigating to MainTab")
                 self.navigateToMainTab = true
             }
         }
+        print("Starting timer")
         timerManager.startTimer()
     }
+
 
 }
 
