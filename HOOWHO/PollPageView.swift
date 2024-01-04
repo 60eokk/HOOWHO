@@ -61,27 +61,25 @@ struct PollPageView: View {
     }
 
     private func goToNextQuestion() {
-            if currentQuestionIndex < selectedQuestions.count - 1 {
-                currentQuestionIndex += 1
-            } else {
-                userService.updateUserCoinBalance(coinsEarned: 10) {
-                    DispatchQueue.main.async {
-                        self.navigateToMainTab = true
-                    }
-                }
-            }
+        if currentQuestionIndex < selectedQuestions.count - 1 {
+            currentQuestionIndex += 1
+        } else {
+            // User has finished the last question, call finishPoll
+            self.finishPoll()
         }
+    }
 
     private func finishPoll() {
         print("Finishing poll")
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
+                print("Starting timer")
+                self.timerManager.startTimer() // Start the timer
+
                 print("Navigating to MainTab")
-                self.navigateToMainTab = true
+                self.navigateToMainTab = true // Navigate after starting the timer
             }
         }
-        print("Starting timer")
-        timerManager.startTimer()
     }
 
 
