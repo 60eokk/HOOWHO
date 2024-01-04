@@ -65,7 +65,9 @@ struct PollPageView: View {
             currentQuestionIndex += 1
         } else {
             // User has finished the last question, call finishPoll
-            self.finishPoll()
+            userService.updateUserCoinBalance(coinsEarned: 10){
+                self.finishPoll()
+            }
         }
     }
 
