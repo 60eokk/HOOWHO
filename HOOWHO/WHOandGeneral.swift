@@ -18,6 +18,9 @@ struct GeneralView: View {
                 Text("Time Remaining: \(timeFormatted(timerManager.timeRemaining))")
             } else {
                 Text("You can answer the questions again!")
+                    .onAppear {
+                        print("Timer is not active. Time remaining: \(timerManager.timeRemaining)")
+                    }
             }
         }
     }
