@@ -11,6 +11,9 @@ struct RegistrationView: View {
     let selectedSchoolName: String
     @State private var email: String = ""
     @State private var password: String = ""
+    
+    @EnvironmentObject var timerManager: TimerManager
+
 
 
     var body: some View {

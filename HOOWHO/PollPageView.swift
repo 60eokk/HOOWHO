@@ -14,7 +14,7 @@ struct PollPageView: View {
     
     @EnvironmentObject var appState: AppState
     
-    @ObservedObject var timerManager = TimerManager()
+    @EnvironmentObject var timerManager: TimerManager
     
     
 
@@ -64,25 +64,17 @@ struct PollPageView: View {
         if currentQuestionIndex < selectedQuestions.count - 1 {
             currentQuestionIndex += 1
         } else {
-            // User has finished the last question, call finishPoll
-            userService.updateUserCoinBalance(coinsEarned: 10){
-                self.finishPoll()
-            }
+            finishPoll()
         }
     }
+
+    
 
     private func finishPoll() {
         print("Finishing poll")
-        userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
-            DispatchQueue.main.async {
-                print("Starting timer")
-                self.timerManager.startTimer() // Start the timer
-
-                print("Navigating to MainTab")
-                self.navigateToMainTab = true // Navigate after starting the timer
-            }
-        }
+        self.navigateToMainTab = false
     }
+
 
 
 }

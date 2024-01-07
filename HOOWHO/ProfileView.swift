@@ -7,6 +7,9 @@ struct ProfileView: View {
     @State private var isLoading = true
     @State private var errorMessage: String?
     private let userService = UserService()
+    
+    @EnvironmentObject var timerManager: TimerManager
+
 
     func fetchUserProfile() {
         userService.fetchUserProfile { profile in

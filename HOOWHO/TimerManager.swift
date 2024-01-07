@@ -1,5 +1,5 @@
 //
-//  TimeManager.swift
+//  TimerManager.swift
 
 
 import Foundation
@@ -11,11 +11,12 @@ class TimerManager: ObservableObject {
 
     func startTimer() {
         print("Timer started")
-        self.timeRemaining = 1800
-        self.timerActive = true
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            self?.updateTimer()
-        }
+//        self.timeRemaining = 1800
+//        self.timerActive = true
+//        print("Timer started, timerActive: \(timerActive)")
+//        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+//            self?.updateTimer()
+//        }
     }
 
     private func updateTimer() {

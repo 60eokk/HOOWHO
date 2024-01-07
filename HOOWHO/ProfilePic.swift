@@ -11,6 +11,8 @@ struct ProfilePic: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
+    
+    @EnvironmentObject var timerManager: TimerManager
 
     var body: some View {
         VStack {
