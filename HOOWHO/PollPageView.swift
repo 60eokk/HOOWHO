@@ -11,7 +11,9 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
 
-    @EnvironmentObject var timerManager: TimerManager
+//    @EnvironmentObject var timerManager: TimerManager
+    @EnvironmentObject var appState: AppState
+
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var navigateToMainTabView: Bool
@@ -66,10 +68,8 @@ struct PollPageView: View {
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
                 print("Starting timer")
-                self.timerManager.startTimer()
-
-                // Instead of dismissing, set the binding to navigate to MainTabView
-                self.navigateToMainTabView = true
+//                self.timerManager.startTimer()
+                self.appState.navigationTarget = .mainTabView
             }
         }
     }

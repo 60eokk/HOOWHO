@@ -12,10 +12,7 @@ struct RegistrationView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
-    @EnvironmentObject var timerManager: TimerManager
-
-
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -49,11 +46,3 @@ struct RegistrationView: View {
         }
     }
 }
-
-
-
-//struct RegistrationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegistrationView(selectedGrade: "Grade 1", selectedSchoolName: "SchoolID1")
-//    }
-//}

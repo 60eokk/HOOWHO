@@ -4,7 +4,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var timerManager: TimerManager
+//    @EnvironmentObject var timerManager: TimerManager
 
     var body: some View {
         TabView {

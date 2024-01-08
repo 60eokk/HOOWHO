@@ -10,8 +10,6 @@ struct NameView: View {
     @State private var navigateToProfilePic = false
     private let userService = UserService()
     
-    @EnvironmentObject var timerManager: TimerManager
-
 
     var body: some View {
         VStack {

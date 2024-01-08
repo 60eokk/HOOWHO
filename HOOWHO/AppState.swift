@@ -6,6 +6,9 @@
 import SwiftUI
 
 class AppState: ObservableObject {
-    @Published var shouldShowMainTabView = false
-//    @Published var pollCompleted = false //Created to control "not going back to tenth question after finishing poll"
+    enum NavigationTarget {
+        case none, mainTabView
+    }
+
+    @Published var navigationTarget: NavigationTarget = .none
 }

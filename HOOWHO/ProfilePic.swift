@@ -13,8 +13,7 @@ struct ProfilePic: View {
     @State private var selectedImage: UIImage?
     @State private var navigateToMainTabView = false  // Add this state variable
     
-    @EnvironmentObject var timerManager: TimerManager
-
+    
     var body: some View {
         VStack {
             // Image view or placeholder
@@ -96,12 +95,3 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-
-
-
-//struct ProfilePic_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfilePic()
-//    }
-//}

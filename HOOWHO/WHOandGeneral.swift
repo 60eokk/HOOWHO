@@ -1,15 +1,16 @@
 import SwiftUI
 
 struct GeneralView: View {
-    @EnvironmentObject var timerManager: TimerManager
+//    @EnvironmentObject var timerManager: TimerManager
 
     var body: some View {
         VStack {
-            if timerManager.timerActive {
-                Text("Time Remaining: \(timeFormatted(timerManager.timeRemaining))")
-            } else {
-                Text("You can answer the questions again!")
-            }
+            Text("THIS IS A TEST")
+//            if timerManager.timerActive {
+//                Text("Time Remaining: \(timeFormatted(timerManager.timeRemaining))")
+//            } else {
+//                Text("You can answer the questions again!")
+//            }
         }
     }
 
