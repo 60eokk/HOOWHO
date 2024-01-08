@@ -67,9 +67,7 @@ struct PollPageView: View {
     private func finishPoll() {
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
-                print("Starting timer")
-//                self.timerManager.startTimer()
-                self.appState.navigationTarget = .mainTabView
+                self.appState.shouldNavigateToMainTabView = true
             }
         }
     }

@@ -21,23 +21,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct HOOWHOApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var appState = AppState()
-//    @StateObject var timerManager = TimerManager()
 
     var body: some Scene {
         WindowGroup {
-            switch appState.navigationTarget {
-            case .none:
-                LaunchView().environmentObjects(appState: appState)
-            case .mainTabView:
-                MainTabView().environmentObjects(appState: appState)
+            if appState.shouldNavigateToMainTabView {
+                MainTabView()
+                    .environmentObject(appState) // Apply environmentObject here
+            } else {
+                LaunchView()
+                    .environmentObject(appState) // And here
             }
         }
-    }
-}
-
-extension View {
-    func environmentObjects(appState: AppState) -> some View {
-        self.environmentObject(appState)
-//            .environmentObject(timerManager)
     }
 }
