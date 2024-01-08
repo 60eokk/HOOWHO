@@ -8,15 +8,11 @@ import SwiftUI
 struct PollPageView: View {
     let selectedQuestions: [PollQuestion]
     @State private var currentQuestionIndex = 0
-    @State private var selectedOption: String? //? means optional, so it can either hold a value or nil
+    @State private var selectedOption: String?
     @State private var coinsEarned = 0
-    @State private var navigateToMainTab = false
-    
+
     @EnvironmentObject var appState: AppState
-    
     @EnvironmentObject var timerManager: TimerManager
-    
-    
 
     private let userService = UserService()
 
@@ -53,11 +49,6 @@ struct PollPageView: View {
         }
         .padding()
         .navigationBarTitle("Poll", displayMode: .inline)
-        .background(
-            NavigationLink(destination: MainTabView(), isActive: $navigateToMainTab) {
-                EmptyView()
-            }
-        )
     }
 
     private func goToNextQuestion() {
@@ -68,24 +59,18 @@ struct PollPageView: View {
         }
     }
 
-    
-
     private func finishPoll() {
-        print("Finishing poll")
-        self.navigateToMainTab = false
+        print("Poll finished")
+        self.appState.pollCompleted = true
+        // Comment out the below code temporarily
+        /*
+        userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
+            DispatchQueue.main.async {
+                print("Starting timer")
+                self.timerManager.startTimer()
+            }
+        }
+        */
     }
 
-
-
 }
-
-// UserService.swift needs to be adjusted to call a completion handler after updating coins.
-
-
-
-
-//struct Pollpage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PollPageView()
-//    }
-//}
