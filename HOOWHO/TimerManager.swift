@@ -12,13 +12,11 @@ class TimerManager: ObservableObject {
     func startTimer() {
         print("Timer start requested")
         // Comment out the actual timer code for now
-        /*
         self.timeRemaining = 1800
         self.timerActive = true
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.updateTimer()
         }
-        */
     }
 
 

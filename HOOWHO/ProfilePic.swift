@@ -11,6 +11,7 @@ struct ProfilePic: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
+    @State private var navigateToMainTabView = false  // Add this state variable
     
     @EnvironmentObject var timerManager: TimerManager
 
@@ -47,7 +48,8 @@ struct ProfilePic: View {
             .padding()
 
             if navigateToPollPage {
-                NavigationLink(destination: PollPageView(), isActive: $navigateToPollPage) {
+                // Pass the new binding to PollPageView
+                NavigationLink(destination: PollPageView(navigateToMainTabView: $navigateToMainTabView), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
             }

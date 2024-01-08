@@ -27,10 +27,11 @@ struct LaunchView: View { //Defines new view type called LaunchView, which confo
 
 
 
-
-struct LaunchView_Previews: PreviewProvider { //Used by Xcode to render a preview
+struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView()
+        // Create an instance of TimerManager
+        let timerManager = TimerManager()
+        // Pass the instance to the environmentObject
+        LaunchView().environmentObject(timerManager)
     }
 }
-

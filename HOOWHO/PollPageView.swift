@@ -11,12 +11,15 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
 
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var timerManager: TimerManager
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var navigateToMainTabView: Bool
 
     private let userService = UserService()
 
-    init() {
+    init(navigateToMainTabView: Binding<Bool>) {
+        self._navigateToMainTabView = navigateToMainTabView
         selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
     }
 
@@ -60,17 +63,14 @@ struct PollPageView: View {
     }
 
     private func finishPoll() {
-        print("Poll finished")
-        self.appState.pollCompleted = true
-        // Comment out the below code temporarily
-        /*
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
                 print("Starting timer")
                 self.timerManager.startTimer()
+
+                // Instead of dismissing, set the binding to navigate to MainTabView
+                self.navigateToMainTabView = true
             }
         }
-        */
     }
-
 }

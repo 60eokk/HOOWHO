@@ -12,16 +12,14 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }
-
-            GeneralView()
-                .tabItem {
-                    Label("General", systemImage: "timer")
-                }
-
-            WHOView()
-                .tabItem {
-                    Label("WHO", systemImage: "questionmark.circle")
-                }
+//            GeneralView()
+//                .tabItem {
+//                    Label("General", systemImage: "timer")
+//                }
+//            WHOView()
+//                .tabItem {
+//                    Label("WHO", systemImage: "questionmark.circle")
+//                }
         }
     }
 }
