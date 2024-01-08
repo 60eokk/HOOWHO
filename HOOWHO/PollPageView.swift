@@ -11,13 +11,8 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
 
-//    @EnvironmentObject var timerManager: TimerManager
-    @EnvironmentObject var appState: AppState
-
-    @Environment(\.presentationMode) var presentationMode
     
     @Binding var navigateToMainTabView: Bool
-
     private let userService = UserService()
 
     init(navigateToMainTabView: Binding<Bool>) {
@@ -33,8 +28,8 @@ struct PollPageView: View {
 
                 ForEach(selectedQuestions[currentQuestionIndex].options, id: \.self) { option in
                     Button(action: {
-                        self.selectedOption = option
-                        self.goToNextQuestion()
+                        selectedOption = option
+                        goToNextQuestion()
                     }) {
                         Text(option)
                             .padding()
@@ -48,7 +43,7 @@ struct PollPageView: View {
             } else {
                 Text("You've earned \(coinsEarned) coins!")
                 Button("Finish") {
-                    self.finishPoll()
+                    finishPoll()
                 }
             }
         }
@@ -67,7 +62,8 @@ struct PollPageView: View {
     private func finishPoll() {
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
-                self.appState.shouldNavigateToMainTabView = true
+                // Set the navigateToMainTabView to true to trigger navigation
+                self.navigateToMainTabView = true
             }
         }
     }

@@ -20,17 +20,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main //indicates starting point of app
 struct HOOWHOApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var appState = AppState()
 
     var body: some Scene {
         WindowGroup {
-            if appState.shouldNavigateToMainTabView {
-                MainTabView()
-                    .environmentObject(appState) // Apply environmentObject here
-            } else {
-                LaunchView()
-                    .environmentObject(appState) // And here
-            }
+            LaunchView()
+//            MainTabView()
         }
     }
 }

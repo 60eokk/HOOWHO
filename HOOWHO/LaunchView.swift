@@ -6,18 +6,16 @@
 
 import SwiftUI
 
-//In SwiftUI, every piece of UI is "View"
-struct LaunchView: View { //Defines new view type called LaunchView, which conforms to View protocol
-    @EnvironmentObject var appState: AppState //Declares environment object named appState
-    var body: some View {//Obligates LaunchView to to have property of "body". body is a mandatory property for any type that conforms with View protocol
-        NavigationView { //Container view that manages hierarchical content, typically used to create and manage navigation stack
-            VStack { //Vertical stack that arranges its child views in vertical order
+struct LaunchView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
                 Text("HOOWHO")
                     .font(.largeTitle)
                     .padding()
 
-                NavigationLink(destination: GradePickerView()) { //Navigation link, when tapped, transitions to GradePickerView
-                    Text("👤") //Content of NavigationLink
+                NavigationLink(destination: GradePickerView()) {
+                    Text("👤")
                         .font(.system(size: 50))
                 }
             }
@@ -25,12 +23,8 @@ struct LaunchView: View { //Defines new view type called LaunchView, which confo
     }
 }
 
-
-
-
-struct LaunchView_Previews: PreviewProvider { //Used by Xcode to render a preview
+struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
         LaunchView()
     }
 }
-

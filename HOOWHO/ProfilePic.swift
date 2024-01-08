@@ -47,7 +47,6 @@ struct ProfilePic: View {
             .padding()
 
             if navigateToPollPage {
-                // Pass the new binding to PollPageView
                 NavigationLink(destination: PollPageView(navigateToMainTabView: $navigateToMainTabView), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
