@@ -1,8 +1,7 @@
 //
 //  ProfilePic.swift
 
-
-
+// 오늘 다시 할 것: 마지막 지피티 답안은 아직 하지 않았으니 그것부터 시도해보자
 
 import SwiftUI
 

@@ -11,8 +11,8 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
 
-    
     @Binding var navigateToMainTabView: Bool
+    
     private let userService = UserService()
 
     init(navigateToMainTabView: Binding<Bool>) {
@@ -62,9 +62,13 @@ struct PollPageView: View {
     private func finishPoll() {
         userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
             DispatchQueue.main.async {
-                // Set the navigateToMainTabView to true to trigger navigation
-                self.navigateToMainTabView = true
+                // Directly navigate to MainTabView for testing purposes
+                if let window = UIApplication.shared.windows.first {
+                    window.rootViewController = UIHostingController(rootView: MainTabView())
+                    window.makeKeyAndVisible()
+                }
             }
         }
     }
+
 }
