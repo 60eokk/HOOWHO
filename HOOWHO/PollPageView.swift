@@ -11,13 +11,13 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
     var timerManager = TimerManager.shared
-
-    @Binding var navigateToMainTabView: Bool
+    
+    @Binding var shouldRestartPoll: Bool
     private let userService = UserService()
 
-    init(navigateToMainTabView: Binding<Bool>) {
-        self._navigateToMainTabView = navigateToMainTabView
-    }
+    init(shouldRestartPoll: Binding<Bool>) {
+            self._shouldRestartPoll = shouldRestartPoll
+        }
 
     var body: some View {
         VStack {
@@ -58,7 +58,7 @@ struct PollPageView: View {
         currentQuestionIndex = 0
         selectedOption = nil
         coinsEarned = 0
-        timerManager.resetTimer()  // Reset the timer when the poll is reset
+        timerManager.resetTimer()
     }
 
     private func goToNextQuestion() {
@@ -74,13 +74,10 @@ struct PollPageView: View {
 
         userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
             DispatchQueue.main.async {
-                // Navigate to MainTabView or perform any other UI update
-                if let window = UIApplication.shared.windows.first {
-                    window.rootViewController = UIHostingController(rootView: MainTabView())
-                    window.makeKeyAndVisible()
-                }
+                // Signal to switch back to the main tab view
+                shouldRestartPoll = false
             }
         }
-        TimerManager.shared.startTimer()
+        timerManager.startTimer()
     }
 }
