@@ -3,21 +3,22 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject var timerManager = TimerManager()
     var body: some View {
         TabView {
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }
-
-            ReplayView()
+            
+            ReplayView(timerManager: timerManager)
                 .tabItem {
-                    Label("General", systemImage: "fire.circle")
+                    Label("Replay", systemImage: "person.circle")
                 }
             
             WHOView()
                 .tabItem {
-                    Label("WHO", systemImage: "question.circle")
+                    Label("WHO", systemImage: "person.circle")
                 }
         }
     }

@@ -5,11 +5,10 @@ struct ReplayView: View {
 
     var body: some View {
         VStack {
-            if timerManager.timeRemaining > 0 {
-                Text("Time Remaining: \(timerManager.timeRemaining) seconds")
-            } else {
-                Text("Timer completed!")
-            }
+            Text("Time Remaining: \(timerManager.timeRemaining) seconds")
+        }
+        .onAppear {
+            self.timerManager.startTimer()
         }
     }
 }

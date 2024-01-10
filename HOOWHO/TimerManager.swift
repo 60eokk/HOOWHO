@@ -10,7 +10,7 @@ class TimerManager: ObservableObject {
     let totalTime: Int
     var timer: Timer?
 
-    init(countdown: Int = 1800) { // 1800 seconds = 30 minutes
+    init(countdown: Int = 10) { // 1800 seconds = 30 minutes
         self.totalTime = countdown
         self.timeRemaining = countdown
     }
@@ -25,12 +25,15 @@ class TimerManager: ObservableObject {
 
     private func timeTick() {
         if timeRemaining > 0 {
-            timeRemaining -= 1
+            DispatchQueue.main.async {
+                self.timeRemaining -= 1
+            }
         } else {
             timer?.invalidate()
             timer = nil
         }
     }
+
 
     deinit {
         timer?.invalidate()
