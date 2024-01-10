@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var timerManager = TimerManager()
+    var timerManager = TimerManager.shared
     var body: some View {
         TabView {
             ProfileView()

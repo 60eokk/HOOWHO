@@ -6,22 +6,34 @@ import Foundation
 import Combine
 
 class TimerManager: ObservableObject {
+    static let shared = TimerManager()
     @Published var timeRemaining: Int
-    let totalTime: Int
-    var timer: Timer?
 
-    init(countdown: Int = 10) { // 1800 seconds = 30 minutes
-        self.totalTime = countdown
-        self.timeRemaining = countdown
+    private var timer: Timer?
+    private let totalTime: Int = 1800  // 30 minutes
+
+    private init() {
+        self.timeRemaining = totalTime
     }
 
     func startTimer() {
+        timer?.invalidate() // Invalidate any existing timer
         self.timeRemaining = totalTime
-        timer?.invalidate() // Stop any existing timer
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            self?.timeTick()
+            DispatchQueue.main.async {
+                if let self = self {
+                    if self.timeRemaining > 0 {
+                        self.timeRemaining -= 1
+                    } else {
+                        self.timer?.invalidate()
+                    }
+                }
+            }
         }
     }
+
+
 
     private func timeTick() {
         if timeRemaining > 0 {

@@ -11,7 +11,7 @@ struct ProfilePic: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var navigateToMainTabView = false  // Add this state variable
-    
+
     
     var body: some View {
         VStack {

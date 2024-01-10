@@ -24,7 +24,7 @@ struct HOOWHOApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchView()
-//            MainTabView()
+            MainTabView()
         }
     }
 }
