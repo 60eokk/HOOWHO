@@ -60,9 +60,11 @@ struct PollPageView: View {
     }
 
     private func finishPoll() {
-        userService.updateUserCoinBalance(coinsEarned: coinsEarned) {
+        let coinsToAdd = 10  // The number of coins to add
+
+        userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
             DispatchQueue.main.async {
-                // Directly navigate to MainTabView for testing purposes
+                // Navigate to MainTabView or perform any other UI update
                 if let window = UIApplication.shared.windows.first {
                     window.rootViewController = UIHostingController(rootView: MainTabView())
                     window.makeKeyAndVisible()
