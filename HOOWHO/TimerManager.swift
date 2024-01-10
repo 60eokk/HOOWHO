@@ -10,7 +10,7 @@ class TimerManager: ObservableObject {
     @Published var timeRemaining: Int
 
     private var timer: Timer?
-    private let totalTime: Int = 1800  // 30 minutes
+    private let totalTime: Int = 5  // 30 minutes
 
     private init() {
         self.timeRemaining = totalTime
@@ -31,6 +31,11 @@ class TimerManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    func resetTimer() {
+        timer?.invalidate()
+        self.timeRemaining = totalTime
     }
 
 

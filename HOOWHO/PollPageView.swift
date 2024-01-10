@@ -6,19 +6,17 @@
 import SwiftUI
 
 struct PollPageView: View {
-    let selectedQuestions: [PollQuestion]
+    @State private var selectedQuestions: [PollQuestion] = []
     @State private var currentQuestionIndex = 0
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
     var timerManager = TimerManager.shared
 
     @Binding var navigateToMainTabView: Bool
-    
     private let userService = UserService()
 
     init(navigateToMainTabView: Binding<Bool>) {
         self._navigateToMainTabView = navigateToMainTabView
-        selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
     }
 
     var body: some View {
@@ -50,6 +48,17 @@ struct PollPageView: View {
         }
         .padding()
         .navigationBarTitle("Poll", displayMode: .inline)
+        .onAppear {
+            resetPoll()
+        }
+    }
+
+    private func resetPoll() {
+        selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
+        currentQuestionIndex = 0
+        selectedOption = nil
+        coinsEarned = 0
+        timerManager.resetTimer()  // Reset the timer when the poll is reset
     }
 
     private func goToNextQuestion() {
@@ -74,5 +83,4 @@ struct PollPageView: View {
         }
         TimerManager.shared.startTimer()
     }
-
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ReplayView: View {
     @ObservedObject var timerManager = TimerManager.shared
+    
 
     var body: some View {
         VStack {
@@ -10,6 +11,7 @@ struct ReplayView: View {
             } else {
                 Button("Play Poll Again") {
                     // Logic to enable replaying the poll
+                    timerManager.resetTimer()
                 }
             }
         }
