@@ -10,7 +10,15 @@ struct MainTabView: View {
                     Label("Profile", systemImage: "person.circle")
                 }
 
-            // Other tabs go here
+            ReplayView()
+                .tabItem {
+                    Label("General", systemImage: "fire.circle")
+                }
+            
+            WHOView()
+                .tabItem {
+                    Label("WHO", systemImage: "question.circle")
+                }
         }
     }
 }

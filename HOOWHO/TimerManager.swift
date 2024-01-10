@@ -1,38 +1,38 @@
-////
-////  TimerManager.swift
 //
-//
-//import Foundation
-//
-//class TimerManager: ObservableObject {
-//    @Published var timeRemaining = 1800
-//    @Published var timerActive = false
-//    var timer: Timer?
-//
-//    func startTimer() {
-//        print("Timer start requested")
-//        // Comment out the actual timer code for now
-//        self.timeRemaining = 1800
-//        self.timerActive = true
-//        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-//            self?.updateTimer()
-//        }
-//    }
-//
-//
-//    private func updateTimer() {
-//        print("Updating timer, timeRemaining: \(timeRemaining)")
-//        if timeRemaining > 0 {
-//            timeRemaining -= 1
-//        } else {
-//            timerActive = false
-//            timer?.invalidate()
-//            timer = nil
-//        }
-//    }
-//
-//    func stopTimer() {
-//        timerActive = false
-//        timer?.invalidate()
-//    }
-//}
+//  TimerManager.swift
+
+
+import Foundation
+import Combine
+
+class TimerManager: ObservableObject {
+    @Published var timeRemaining: Int
+    let totalTime: Int
+    var timer: Timer?
+
+    init(countdown: Int = 1800) { // 1800 seconds = 30 minutes
+        self.totalTime = countdown
+        self.timeRemaining = countdown
+    }
+
+    func startTimer() {
+        self.timeRemaining = totalTime
+        timer?.invalidate() // Stop any existing timer
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.timeTick()
+        }
+    }
+
+    private func timeTick() {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
+        } else {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+
+    deinit {
+        timer?.invalidate()
+    }
+}

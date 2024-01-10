@@ -10,6 +10,7 @@ struct PollPageView: View {
     @State private var currentQuestionIndex = 0
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
+    @ObservedObject var timerManager = TimerManager()
 
     @Binding var navigateToMainTabView: Bool
     
@@ -71,6 +72,7 @@ struct PollPageView: View {
                 }
             }
         }
+        timerManager.startTimer()
     }
 
 }
