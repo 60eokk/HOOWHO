@@ -9,7 +9,6 @@ struct ProfilePic: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var navigateToMainTabView = false  // Add this state variable
-    @State private var shouldRestartPoll = false
 
     
     var body: some View {
@@ -45,9 +44,12 @@ struct ProfilePic: View {
             .padding()
 
             if navigateToPollPage {
-                NavigationLink(destination: PollPageView(shouldRestartPoll: $shouldRestartPoll), isActive: $navigateToPollPage) {
+                NavigationLink(destination: PollPageView(navigateToMainTabView: $navigateToMainTabView), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
+            }
+            if navigateToMainTabView {
+                MainTabView()
             }
         }
         .navigationBarTitle("Profile Picture", displayMode: .inline)

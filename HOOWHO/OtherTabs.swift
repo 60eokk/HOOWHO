@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ReplayView: View {
     @ObservedObject var timerManager = TimerManager.shared
-    @Binding var shouldRestartPoll: Bool  // New Binding variable
+    @Binding var navigateToMainTabView: Bool  // New Binding variable
 
     var body: some View {
         VStack {
@@ -11,7 +11,7 @@ struct ReplayView: View {
             } else {
                 Button("Play Poll Again") {
                     timerManager.resetTimer()
-                    shouldRestartPoll = true  // Trigger the state change
+                    navigateToMainTabView = true  // Trigger the state change
                 }
             }
         }

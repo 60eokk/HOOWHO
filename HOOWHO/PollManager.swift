@@ -1,11 +1,11 @@
+////
+////  PollManager.swift
 //
-//  PollManager.swift
-
-
-import Foundation
-import Combine
-
-class PollManager: ObservableObject {
-//    @Published var pollCompleted = false
-    @Published var shouldRestartPoll = false
-}
+//
+//import Foundation
+//import Combine
+//
+//class PollManager: ObservableObject {
+////    @Published var pollCompleted = false
+//    @Published var shouldRestartPoll = false
+//}

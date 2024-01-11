@@ -12,12 +12,13 @@ struct PollPageView: View {
     @State private var coinsEarned = 0
     var timerManager = TimerManager.shared
     
-    @Binding var shouldRestartPoll: Bool
+    @Binding var navigateToMainTabView: Bool
     private let userService = UserService()
 
-    init(shouldRestartPoll: Binding<Bool>) {
-            self._shouldRestartPoll = shouldRestartPoll
-        }
+    
+    init(navigateToMainTabView: Binding<Bool>) {
+        self._navigateToMainTabView = navigateToMainTabView
+    }
 
     var body: some View {
         VStack {
@@ -80,11 +81,11 @@ struct PollPageView: View {
         userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
             DispatchQueue.main.async {
                 // Signal to switch back to the main tab view
-                shouldRestartPoll = false
+                navigateToMainTabView = true
             }
         }
+        
         timerManager.startTimer()
-        print("HELLO WORLD")
-        shouldRestartPoll = false
+        navigateToMainTabView = true
     }
 }
