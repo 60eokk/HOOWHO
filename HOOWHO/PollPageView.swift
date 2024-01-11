@@ -54,7 +54,9 @@ struct PollPageView: View {
     }
 
     private func resetPoll() {
+        print("Resetting poll")
         selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
+        print("Number of questions: \(selectedQuestions.count)")
         currentQuestionIndex = 0
         selectedOption = nil
         coinsEarned = 0
@@ -62,13 +64,16 @@ struct PollPageView: View {
     }
 
     private func goToNextQuestion() {
+        print("Current question index before increment: \(currentQuestionIndex)")
         if currentQuestionIndex < selectedQuestions.count - 1 {
             currentQuestionIndex += 1
+            print("Current question index after increment: \(currentQuestionIndex)")
         } else {
+            print("Calling finishPoll")
             finishPoll()
         }
     }
-
+    
     private func finishPoll() {
         let coinsToAdd = 10  // The number of coins to add
 
@@ -79,5 +84,7 @@ struct PollPageView: View {
             }
         }
         timerManager.startTimer()
+        print("HELLO WORLD")
+        shouldRestartPoll = false
     }
 }

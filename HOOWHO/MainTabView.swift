@@ -8,7 +8,7 @@ struct MainTabView: View {
     var body: some View {
         if shouldRestartPoll {
             PollPageView(shouldRestartPoll: $shouldRestartPoll)
-        }else {
+        } else {
             TabView {
                 ProfileView()
                     .tabItem { Label("Profile", systemImage: "person.circle") }
