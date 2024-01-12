@@ -57,7 +57,7 @@ struct PollPageView: View {
     private func resetPoll() {
         print("Resetting poll")
         selectedQuestions = allPollQuestions.shuffled().prefix(10).map { $0 }
-        print("Number of questions: \(selectedQuestions.count)")
+//        print("Number of questions: \(selectedQuestions.count)")
         currentQuestionIndex = 0
         selectedOption = nil
         coinsEarned = 0
@@ -81,7 +81,7 @@ struct PollPageView: View {
         userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
             DispatchQueue.main.async {
                 // Signal to switch back to the main tab view
-                navigateToMainTabView = true
+//                navigateToMainTabView = true
             }
         }
         
