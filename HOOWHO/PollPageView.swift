@@ -10,14 +10,16 @@ struct PollPageView: View {
     @State private var currentQuestionIndex = 0
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
+
     var timerManager = TimerManager.shared
+    var navigationManager: NavigationManager
     
-    @Binding var navigateToMainTabView: Bool
     private let userService = UserService()
 
-    
-    init(navigateToMainTabView: Binding<Bool>) {
-        self._navigateToMainTabView = navigateToMainTabView
+    // Initialize with a NavigationManager instance
+    init(navigationManager: NavigationManager) {
+        self.navigationManager = navigationManager
+        // Initialize other properties if needed
     }
 
     var body: some View {
@@ -77,15 +79,11 @@ struct PollPageView: View {
     
     private func finishPoll() {
         let coinsToAdd = 10  // The number of coins to add
-
         userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
-            DispatchQueue.main.async {
-                // Signal to switch back to the main tab view
-//                navigateToMainTabView = true
-            }
+            // This closure is asynchronous
         }
-        
         timerManager.startTimer()
-        navigateToMainTabView = true
+        navigationManager.shouldNavigateToMainTabView = true
     }
+
 }

@@ -10,7 +10,7 @@
 		2A0228E42B3AAEB900BCFF29 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0228E32B3AAEB900BCFF29 /* MainTabView.swift */; };
 		2A0228E62B3BA5A400BCFF29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A0228E52B3BA5A400BCFF29 /* GoogleService-Info.plist */; };
 		2A0228E82B3C223B00BCFF29 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0228E72B3C223A00BCFF29 /* AppState.swift */; };
-		2A1EB3202B4E7BB1002B6A22 /* PollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1EB31F2B4E7BB1002B6A22 /* PollManager.swift */; };
+		2A1EB3202B4E7BB1002B6A22 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1EB31F2B4E7BB1002B6A22 /* NavigationManager.swift */; };
 		2A2CADAE2B3EDBB600C755A7 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2CADAD2B3EDBB600C755A7 /* TimerManager.swift */; };
 		2A3246152B399723008B9C2C /* PollQuestionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3246142B399723008B9C2C /* PollQuestionsData.swift */; };
 		2A3246192B399BA3008B9C2C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3246162B399BA3008B9C2C /* UserProfile.swift */; };
@@ -62,7 +62,7 @@
 		2A0228E32B3AAEB900BCFF29 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		2A0228E52B3BA5A400BCFF29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A0228E72B3C223A00BCFF29 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		2A1EB31F2B4E7BB1002B6A22 /* PollManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollManager.swift; sourceTree = "<group>"; };
+		2A1EB31F2B4E7BB1002B6A22 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		2A2CADAD2B3EDBB600C755A7 /* TimerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		2A3246142B399723008B9C2C /* PollQuestionsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollQuestionsData.swift; sourceTree = "<group>"; };
 		2A3246162B399BA3008B9C2C /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				2AB663CD2B36CDF700DA945A /* ProfilePic.swift */,
 				2A3246142B399723008B9C2C /* PollQuestionsData.swift */,
 				2A2CADAD2B3EDBB600C755A7 /* TimerManager.swift */,
-				2A1EB31F2B4E7BB1002B6A22 /* PollManager.swift */,
+				2A1EB31F2B4E7BB1002B6A22 /* NavigationManager.swift */,
 				2AB663CF2B36CDF800DA945A /* PollPageView.swift */,
 				2A0228E32B3AAEB900BCFF29 /* MainTabView.swift */,
 				2A3246172B399BA3008B9C2C /* ProfileView.swift */,
@@ -295,7 +295,7 @@
 				2AF2E33F2B356EDE007F5785 /* SchoolPickerView.swift in Sources */,
 				2A2CADAE2B3EDBB600C755A7 /* TimerManager.swift in Sources */,
 				2A84BD2F2B343BF1005C53A6 /* HOOWHOApp.swift in Sources */,
-				2A1EB3202B4E7BB1002B6A22 /* PollManager.swift in Sources */,
+				2A1EB3202B4E7BB1002B6A22 /* NavigationManager.swift in Sources */,
 				2A0228E42B3AAEB900BCFF29 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

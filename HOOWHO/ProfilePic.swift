@@ -8,9 +8,9 @@ struct ProfilePic: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
-    @State private var navigateToMainTabView = false  // Add this state variable
+    @State private var navigateToMainTabView = false  // State variable for navigation
+    @ObservedObject var navigationManager = NavigationManager()
 
-    
     var body: some View {
         VStack {
             // Image view or placeholder
@@ -38,28 +38,30 @@ struct ProfilePic: View {
                 self.showImagePicker = true
             }
 
+            // Button to start the poll
             Button("Start Poll") {
-                navigateToPollPage = true // Enable navigation to PollPageView
+                navigateToPollPage = true  // Enable navigation to PollPageView
             }
             .padding()
 
+            // NavigationLink to PollPageView
             if navigateToPollPage {
-                NavigationLink(destination: PollPageView(navigateToMainTabView: $navigateToMainTabView), isActive: $navigateToPollPage) {
+                NavigationLink(destination: PollPageView(navigationManager: navigationManager), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
-            }
-            if navigateToMainTabView {
-                MainTabView()
             }
         }
         .navigationBarTitle("Profile Picture", displayMode: .inline)
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
         }
+
+        // Conditional view to navigate to MainTabView
+        if navigationManager.shouldNavigateToMainTabView {
+            MainTabView()
+        }
     }
 }
-
-
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
@@ -89,7 +91,6 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let image = info[.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
-
             picker.dismiss(animated: true)
         }
     }
