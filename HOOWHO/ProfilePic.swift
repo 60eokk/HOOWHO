@@ -9,7 +9,7 @@ struct ProfilePic: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var navigateToMainTabView = false  // State variable for navigation
-    @ObservedObject var navigationManager = NavigationManager()
+
 
     var body: some View {
         VStack {
@@ -40,26 +40,23 @@ struct ProfilePic: View {
 
             // Button to start the poll
             Button("Start Poll") {
-                navigateToPollPage = true  // Enable navigation to PollPageView
+                navigateToPollPage = true
             }
             .padding()
 
-            // NavigationLink to PollPageView
             if navigateToPollPage {
-                NavigationLink(destination: PollPageView(navigationManager: navigationManager), isActive: $navigateToPollPage) {
+                NavigationLink(destination: PollPageView(onPollFinished: {
+                    self.navigateToMainTabView = true
+                }), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
             }
+
+            if navigateToMainTabView {
+                MainTabView()
+            }
         }
         .navigationBarTitle("Profile Picture", displayMode: .inline)
-        .sheet(isPresented: $showImagePicker) {
-            ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
-        }
-
-        // Conditional view to navigate to MainTabView
-        if navigationManager.shouldNavigateToMainTabView {
-            MainTabView()
-        }
     }
 }
 

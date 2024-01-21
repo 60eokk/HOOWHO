@@ -15,12 +15,10 @@ struct PollPageView: View {
     var navigationManager: NavigationManager
     
     private let userService = UserService()
+    var onPollFinished: () -> Void
+    
+    
 
-    // Initialize with a NavigationManager instance
-    init(navigationManager: NavigationManager) {
-        self.navigationManager = navigationManager
-        // Initialize other properties if needed
-    }
 
     var body: some View {
         VStack {
@@ -83,7 +81,7 @@ struct PollPageView: View {
             // This closure is asynchronous
         }
         timerManager.startTimer()
-        navigationManager.shouldNavigateToMainTabView = true
+        onPollFinished()
     }
 
 }
