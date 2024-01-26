@@ -31,6 +31,7 @@ let allPollQuestions: [PollQuestion] = [
     PollQuestion(question: "누가 가장 4차원이야?", options: ["Option A", "Option B", "Option C", "Option D"]),
     PollQuestion(question: "누가 돈이 제일 많아?", options: ["Option A", "Option B", "Option C", "Option D"]),
     PollQuestion(question: "누가 손이 가장 커?", options: ["Option A", "Option B", "Option C", "Option D"]),
+    PollQuestion(question: "누가 친구가 가장 많아?", options: ["Option A", "Option B", "Option C", "Option D"]),
     
     
     
