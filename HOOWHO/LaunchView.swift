@@ -8,7 +8,7 @@ import SwiftUI
 
 struct LaunchView: View {
     var body: some View {
-        NavigationView {  
+        NavigationView {
             VStack {
                 Text("HOOWHO")
                     .font(.largeTitle)
@@ -28,3 +28,4 @@ struct LaunchView_Previews: PreviewProvider {
         LaunchView()
     }
 }
+    
