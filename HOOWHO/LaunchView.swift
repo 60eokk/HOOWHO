@@ -8,7 +8,7 @@ import SwiftUI
 
 struct LaunchView: View {
     var body: some View {
-        NavigationView {
+        NavigationView {  
             VStack {
                 Text("HOOWHO")
                     .font(.largeTitle)
