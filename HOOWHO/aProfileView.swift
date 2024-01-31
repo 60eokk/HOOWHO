@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProfileView: View {
+struct aProfileView: View {
     var body: some View {
         TabView {
             Text("Profile Screen")

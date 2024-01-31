@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct PictureView: View {
+struct aPictureView: View {
     var body: some View {
         Text("Picture Screen")
         // Implement picture taking or gallery selection logic here
-        NavigationLink(destination: PollQuestionsView()) {
+        NavigationLink(destination: aPollQuestionsView()) {
             Text("Next")
         }
     }

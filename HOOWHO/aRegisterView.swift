@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RegisterView: View {
+struct aRegisterView: View {
     @State private var email = ""
     @State private var password = ""
     

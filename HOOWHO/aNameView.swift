@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct NameView: View {
+struct aNameView: View {
     @State private var name = ""
     
     var body: some View {
         Form {
             TextField("Name", text: $name)
-            NavigationLink(destination: PictureView()) {
+            NavigationLink(destination: aPictureView()) {
                 Text("Next")
             }
         }

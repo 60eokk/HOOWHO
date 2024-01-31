@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PollQuestionsView: View {
+struct aPollQuestionsView: View {
     // Assume you have a Question model and questions data
     var body: some View {
         Text("Poll Questions")

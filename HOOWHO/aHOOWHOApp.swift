@@ -1,11 +1,11 @@
 import SwiftUI
 
 @main
-struct HOOWHOApp: App {
+struct aHOOWHOApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                HowToView()
+                aHowToView()
             }
         }
     }

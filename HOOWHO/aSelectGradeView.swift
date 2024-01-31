@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct SelectGradeView: View {
+struct aSelectGradeView: View {
     var body: some View {
         List(1...12, id: \.self) { grade in
-            NavigationLink(destination: SelectSchoolView(grade: grade)) {
+            NavigationLink(destination: aSelectSchoolView(grade: grade)) {
                 Text("Grade \(grade)")
             }
         }
