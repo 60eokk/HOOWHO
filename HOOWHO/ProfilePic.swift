@@ -8,7 +8,9 @@ struct ProfilePic: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
-    @State private var navigateToMainTabView = false  // State variable for navigation
+    @State private var navigateToMainTabView = false
+    @ObservedObject var navigationManager = NavigationManager() // Instance of NavigationManager
+
 
 
     var body: some View {
@@ -45,7 +47,7 @@ struct ProfilePic: View {
             .padding()
 
             if navigateToPollPage {
-                NavigationLink(destination: PollPageView(onPollFinished: {
+                NavigationLink(destination: PollPageView(navigationManager: navigationManager, onPollFinished: {
                     self.navigateToMainTabView = true
                 }), isActive: $navigateToPollPage) {
                     EmptyView()

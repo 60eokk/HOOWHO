@@ -10,7 +10,7 @@ struct MainTabView: View {
             TabView {
                 ProfileView()
                     .tabItem { Label("Profile", systemImage: "person.circle") }
-                ReplayView(navigateToMainTabView: $navigateToMainTabView)
+//                ReplayView(navigateToMainTabView: $navigateToMainTabView)
                     .tabItem { Label("Replay", systemImage: "arrow.clockwise.circle") }
                 WHOView()
                     .tabItem { Label("WHO", systemImage: "question.circle") }

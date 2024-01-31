@@ -11,7 +11,7 @@ struct PollPageView: View {
     @State private var selectedOption: String?
     @State private var coinsEarned = 0
 
-    var timerManager = TimerManager.shared
+//    var timerManager = TimerManager.shared
     var navigationManager: NavigationManager
     
     private let userService = UserService()
@@ -61,7 +61,7 @@ struct PollPageView: View {
         currentQuestionIndex = 0
         selectedOption = nil
         coinsEarned = 0
-        timerManager.resetTimer()
+//        timerManager.resetTimer()
     }
 
     private func goToNextQuestion() {
@@ -80,7 +80,7 @@ struct PollPageView: View {
         userService.updateUserCoinBalance(coinsEarned: coinsToAdd) {
             // This closure is asynchronous
         }
-        timerManager.startTimer()
+//        timerManager.startTimer()
         onPollFinished()
     }
 
