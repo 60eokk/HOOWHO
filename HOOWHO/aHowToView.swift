@@ -2,10 +2,17 @@ import SwiftUI
 
 struct aHowToView: View {
     var body: some View {
-        Text("How to use the app...")
-        // Add more UI components here
-        NavigationLink(destination: aSelectGradeView()) {
-            Text("Start")
+        NavigationView{
+            VStack {
+                Text("HOOWHO")
+                    .font(.largeTitle)
+                    .padding()
+                
+                NavigationLink(destination: aSelectGradeView()) {
+                    Text("👤")
+                        .font(.system(size: 50))
+                }
+            }
         }
     }
 }
@@ -13,10 +20,9 @@ struct aHowToView: View {
 
 
 
-//
-//struct aLaunchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        aHowToView()
-//    }
-//}
-//
+
+struct aLaunchView_Previews: PreviewProvider {
+    static var previews: some View {
+        aHowToView()
+    }
+}
