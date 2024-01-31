@@ -48,17 +48,16 @@ struct ProfilePic: View {
 
             if navigateToPollPage {
                 NavigationLink(destination: PollPageView(navigationManager: navigationManager, onPollFinished: {
-                    self.navigateToMainTabView = true
+                    navigationManager.shouldNavigateToMainTabView = true
                 }), isActive: $navigateToPollPage) {
                     EmptyView()
                 }
             }
-
-            if navigateToMainTabView {
-                MainTabView()
-            }
         }
         .navigationBarTitle("Profile Picture", displayMode: .inline)
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
+        }
     }
 }
 

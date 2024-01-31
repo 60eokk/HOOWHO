@@ -3,15 +3,15 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var navigateToMainTabView = false
+    @ObservedObject var navigationManager: NavigationManager
 
     var body: some View {
-        if navigateToMainTabView {
+        if navigationManager.shouldNavigateToMainTabView {
             TabView {
                 ProfileView()
                     .tabItem { Label("Profile", systemImage: "person.circle") }
-//                ReplayView(navigateToMainTabView: $navigateToMainTabView)
-                    .tabItem { Label("Replay", systemImage: "arrow.clockwise.circle") }
+                // ReplayView() // Uncomment if needed
+                //    .tabItem { Label("Replay", systemImage: "arrow.clockwise.circle") }
                 WHOView()
                     .tabItem { Label("WHO", systemImage: "question.circle") }
             }

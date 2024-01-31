@@ -17,14 +17,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 
 
-@main //indicates starting point of app
+@main
 struct HOOWHOApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var navigationManager = NavigationManager() // Instance of NavigationManager
 
     var body: some Scene {
         WindowGroup {
+            // Assuming you want to start with LaunchView
             LaunchView()
-            MainTabView()
         }
     }
 }
