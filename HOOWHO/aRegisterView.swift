@@ -16,7 +16,7 @@ struct aRegisterView: View {
         }
         .navigationTitle("Register")
     }
-}
+}   
 
 
 //
