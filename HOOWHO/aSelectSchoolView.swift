@@ -11,3 +11,7 @@ struct aSelectSchoolView: View {
         }
     }
 }
+
+
+// Just wanted to add a comment that I realized that I do not stand strong in this SWE world.
+// Thus, would need to reconsider doing stuff

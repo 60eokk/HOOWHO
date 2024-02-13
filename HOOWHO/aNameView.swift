@@ -13,3 +13,6 @@ struct aNameView: View {
         .navigationTitle("Enter Your Name")
     }
 }
+
+
+
